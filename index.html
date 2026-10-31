@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F7C6D0">
+<meta name="description" content="恋爱脑测试。18 道原创题，测你是不是重度恋爱脑。娱乐向自我观察，非正式心理测量。「恋爱脑」是网络梗，不是医学诊断。">
+<meta property="og:title" content="恋爱脑测试 · 测你是不是重度恋爱脑">
+<meta property="og:description" content="六维画像 · 恋爱脑指数 · 六档锐评。娱乐向自我观察，非正式心理测量。">
+<meta property="og:url" content="https://zengpenghui420-glitch.github.io/love-brain/">
+<link rel="canonical" href="https://zengpenghui420-glitch.github.io/love-brain/">
+<title>恋爱脑测试 · 测你是不是重度恋爱脑</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23F7C6D0'/%3E%3Cpath d='M16 24s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 16 11a4.2 4.2 0 0 1 7.5 3c0 5.4-7.5 10-7.5 10z' fill='%23E88A9A'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#FFF7F4;--card:#FFFCFB;--ink:#4A3040;--muted:#8A6B78;--faint:#B89AA6;
+  --ink-deep:#3A2434;--peach:#F7C6D0;--peach-deep:#E88A9A;--rose:#F2A7B5;--rose-deep:#D96B82;
+  --cream:#FFF1EA;--line:#F0D9DF;--panel:#FFE8ED;
+  --sb:env(safe-area-inset-bottom,0px);--st:env(safe-area-inset-top,0px)
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{background:#F5E4E8;color-scheme:light}
+body{
+  max-width:430px;margin:0 auto;min-height:100dvh;color:var(--ink);line-height:1.6;
+  font-family:"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Noto Sans SC","WenQuanYi Micro Hei","Droid Sans Fallback","Microsoft YaHei",sans-serif;
+  background:
+    radial-gradient(circle at 12% -4%, rgba(247,198,208,.55), transparent 42%),
+    radial-gradient(circle at 96% 6%, rgba(242,167,181,.32), transparent 40%),
+    linear-gradient(180deg,#FFFBF9,#FFF7F4 48%,#FFEDEE);
+  overflow-x:hidden
+}
+body.lock{overflow:hidden}
+button,input{font-family:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+[hidden]{display:none !important}
+.screen{display:none}
+.screen.active{display:block}
+#start.active,#quiz.active,#loading.active{display:flex;flex-direction:column;min-height:100dvh}
+#loading.active{align-items:center;justify-content:center;text-align:center;padding:24px}
+#start{padding:calc(22px + var(--st)) 22px calc(22px + var(--sb));text-align:center}
+.mark{width:120px;height:120px;margin:8px auto 10px}
+.mark svg{width:100%;height:auto;display:block}
+.eyebrow{font-size:12px;letter-spacing:3px;color:var(--rose-deep);font-weight:600;margin-bottom:8px}
+h1{font-size:26px;line-height:1.35;font-weight:700;letter-spacing:.5px;margin-bottom:8px;color:var(--ink-deep)}
+.sub{font-size:16px;color:#7A4E5E;margin-bottom:8px}
+.warm{font-size:13px;color:var(--muted);margin-bottom:14px}
+.dim-intro{list-style:none;text-align:left;display:flex;flex-direction:column;gap:8px;margin:0 0 16px}
+.dim-intro li{display:flex;gap:10px;align-items:center;background:rgba(255,252,251,.94);border:1px solid var(--line);border-radius:16px;padding:8px 12px}
+.dim-intro i{flex:0 0 28px;width:28px;height:28px;border-radius:9px;background:rgba(247,198,208,.5);color:#7A4E5E;font-style:normal;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.dim-intro b{display:block;font-size:14px;line-height:1.3}
+.dim-intro span{display:block;font-size:12px;color:var(--muted);line-height:1.45}
+.pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+.pill{padding:5px 10px;border-radius:999px;background:rgba(255,252,251,.94);border:1px solid var(--line);color:#7A4E5E;font-size:12px}
+.btn-primary{width:100%;padding:15px 16px;border:none;border-radius:28px;background:linear-gradient(180deg,#E88A9A,#D96B82);color:#FFF8F6;font-size:17px;font-weight:700;box-shadow:0 8px 18px rgba(217,107,130,.28)}
+.btn-primary:active{transform:scale(.98)}
+.btn-primary:disabled{opacity:.65}
+.btn-ghost{width:100%;margin-top:10px;padding:13px 16px;border-radius:28px;border:1.5px solid #E8C4CC;background:rgba(255,252,251,.94);color:#7A4E5E;font-size:15px;font-weight:600}
+.btn-ghost:active{transform:scale(.98)}
+.hint{margin-top:14px;font-size:12px;color:var(--faint);line-height:1.6}
+.disclaimer{margin-top:16px;padding:12px 12px 12px 14px;background:#FFE8ED;border:1px solid #F0D0D8;border-left:4px solid var(--rose);border-radius:14px;color:#4A3040;font-size:13px;line-height:1.7;text-align:left}
+.disclaimer strong{font-weight:700}
+.qh{padding:14px 18px 12px;background:rgba(255,247,244,.94);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5;backdrop-filter:blur(8px)}
+.qrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.qback{background:none;border:none;color:var(--muted);font-size:14px;padding:4px 0}
+.qprog{font-size:13px;color:var(--rose-deep);font-weight:700}
+.track{height:6px;background:#F0D9DF;border-radius:3px;overflow:hidden}
+.fill{height:100%;width:0;background:linear-gradient(90deg,#F7C6D0,#E88A9A);border-radius:3px;transition:width .3s}
+.qbody{padding:22px 20px 28px}
+.qno{font-size:12px;letter-spacing:2px;color:var(--rose-deep);font-weight:700;margin-bottom:8px}
+.qtext{font-size:20px;font-weight:700;line-height:1.5;margin-bottom:18px;color:var(--ink-deep)}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:13px 14px;background:rgba(255,252,251,.96);border:1.5px solid var(--line);border-radius:16px;color:var(--ink);font-size:15px;box-shadow:0 3px 0 rgba(240,217,223,.9)}
+.opt .onum{flex:0 0 26px;width:26px;height:26px;border-radius:50%;background:rgba(247,198,208,.45);color:#7A4E5E;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.opt.sel,.opt:active{border-color:var(--peach-deep);background:rgba(247,198,208,.28);color:#3A2434}
+.opt.sel .onum{background:var(--rose-deep);color:#FFF8F6}
+.loader{width:40px;height:40px;border:3px solid #F0D9DF;border-top-color:var(--rose-deep);border-radius:50%;animation:sp .8s linear infinite;margin:0 auto 16px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.load-title{font-weight:700;color:var(--ink-deep)}
+.load-sub{margin-top:6px;font-size:13px;color:var(--faint)}
+#result{padding-bottom:calc(196px + var(--sb))}
+.rtop{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:rgba(255,247,244,.94);border-bottom:1px solid var(--line);font-size:14px;font-weight:700;backdrop-filter:blur(8px)}
+.rtop span:last-child{font-weight:500;color:#7A4E5E;font-size:13px}
+.result-body{padding:16px 16px 8px}
+.card{position:relative;background:linear-gradient(180deg,rgba(255,252,251,.98),rgba(255,247,244,.94));border:1px solid var(--line);border-radius:22px;padding:18px 16px 16px;margin-bottom:12px;box-shadow:0 10px 24px rgba(74,48,64,.05)}
+.kicker{font-size:12px;letter-spacing:4px;color:var(--rose-deep);font-weight:700}
+.index-num{font-size:56px;line-height:.95;font-weight:700;color:var(--ink-deep);letter-spacing:-1px;margin:4px 0 2px}
+.index-max{font-size:12px;color:var(--faint);margin-bottom:10px}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap}
+.lv{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(247,198,208,.45);color:#7A4E5E;font-size:13px;font-weight:700}
+.lv-line{margin-top:8px;font-size:14px;color:#5A3848;line-height:1.65}
+.lead{margin-top:14px;font-size:12px;letter-spacing:2px;color:#7A4E5E;font-weight:700}
+.type-title{font-size:28px;line-height:1.25;margin:4px 0 6px;color:var(--ink-deep)}
+.punch{font-size:15px;line-height:1.7;color:#5A3848}
+.egg{margin-top:10px;padding:8px 10px;border-radius:12px;background:rgba(247,198,208,.28);color:#7A4E5E;font-size:13px;line-height:1.55}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tag{padding:4px 10px;border-radius:999px;background:rgba(247,198,208,.4);color:#7A4E5E;font-size:12px;font-weight:600}
+.note{margin-top:10px;font-size:12px;color:var(--muted);line-height:1.6}
+.st{font-size:16px;font-weight:700;letter-spacing:1px;margin-bottom:12px}
+.st:before{content:"";display:inline-block;width:7px;height:7px;margin-right:8px;border-radius:2px;background:var(--peach-deep);transform:translateY(-1px) rotate(45deg)}
+.fine{margin-top:10px;font-size:12px;color:var(--muted);line-height:1.65}
+.radar-box svg{width:100%;height:auto;display:block}
+.bar{margin-top:12px}
+.bar-h{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:700}
+.bar-h b{color:var(--rose-deep);font-size:16px}
+.bar-track{height:8px;background:#F0D9DF;border-radius:99px;overflow:hidden;margin-top:4px}
+.bar-fill{height:100%;width:0;background:linear-gradient(90deg,#F7C6D0,#E88A9A);border-radius:99px}
+.bullets{list-style:none;display:flex;flex-direction:column;gap:10px}
+.bullets li{position:relative;padding-left:14px;font-size:14.5px;line-height:1.7;color:#3A2434}
+.bullets li:before{content:"";position:absolute;left:0;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--rose-deep)}
+.score-grid{display:flex;flex-direction:column;gap:2px;margin-top:8px}
+.dim-read{padding:12px 0;border-top:1px solid var(--line)}
+.dim-read:first-of-type{border-top:none;padding-top:0}
+.dim-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.dn{font-size:14px;font-weight:700}
+.ds{font-size:18px;font-weight:700;color:#7A4E5E}
+.dim-read p{margin-top:4px;font-size:13.5px;color:var(--muted);line-height:1.7}
+#result .disclaimer{margin:4px 0 12px}
+.acts{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;padding:8px 12px calc(10px + var(--sb));background:rgba(255,252,251,.97);border-top:1px solid var(--line);z-index:20;display:flex;flex-direction:column;gap:6px}
+.acts-note{font-size:11px;color:var(--muted);text-align:center;line-height:1.45}
+.acts-row{display:flex;gap:8px}
+.acts-row button{flex:1;padding:11px 4px;border-radius:22px;font-size:13px;font-weight:700}
+.bo{border:1.5px solid #E8C4CC;background:#fff;color:#7A4E5E}
+.bp{border:none;background:linear-gradient(180deg,#E88A9A,#D96B82);color:#FFF8F6}
+.ov{position:fixed;inset:0;background:rgba(58,36,52,.82);z-index:200;display:none;flex-direction:column;align-items:center;padding:16px 16px calc(16px + var(--sb));overflow-y:auto}
+.ov.show{display:flex}
+.ov img{width:min(100%,400px);border-radius:16px;background:#FFF7F4}
+.ovh{color:#FFF8F6;font-size:14px;margin:8px 0 12px}
+.ovb{display:flex;gap:10px;width:100%;max-width:400px;margin-top:12px}
+.ovb button{flex:1;padding:12px;border:none;border-radius:22px;font-size:15px;font-weight:700}
+.ovb .save{background:#fff;color:var(--ink)}
+.ovb .shut{background:rgba(255,252,251,.16);color:#FFF8F6}
+.toast{position:fixed;bottom:calc(210px + var(--sb));left:50%;transform:translateX(-50%);background:rgba(58,36,52,.92);color:#FFF8F6;padding:10px 16px;border-radius:20px;font-size:13px;z-index:300;opacity:0;transition:opacity .3s;pointer-events:none;max-width:88%;text-align:center}
+.toast.show{opacity:1}
+.code-mask{position:fixed;inset:0;background:rgba(58,36,52,.48);z-index:150;display:none;align-items:center;justify-content:center;padding:20px}
+.code-mask.show{display:flex}
+.code-panel-wrap{position:relative;width:100%;max-width:340px}
+.code-panel{background:#FFFCFB;border:1.5px solid var(--line);border-radius:22px;padding:24px 18px 18px;box-shadow:0 16px 40px rgba(58,36,52,.2);text-align:center}
+.code-panel h3{font-size:18px;margin-bottom:14px;color:var(--ink-deep)}
+.code-panel input{width:100%;padding:14px 12px;border:1.5px solid var(--line);border-radius:14px;font-size:18px;letter-spacing:2px;text-align:center;color:var(--ink);background:#FFF7F4;outline:none}
+.code-panel input:focus{border-color:var(--rose);background:#fff}
+.code-panel .btn-primary{margin-top:12px}
+.code-hint{margin-top:12px;font-size:12px;color:var(--faint);line-height:1.6}
+.code-close{position:absolute;top:8px;right:12px;background:none;border:none;font-size:22px;color:var(--faint);line-height:1;padding:4px}
+@media (prefers-reduced-motion:reduce){.fill,.toast,.bar-fill{transition:none}.loader{animation:none}}
+</style>
+</head>
+<body>
+<section id="start" class="screen active">
+  <div class="mark" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#F7C6D0"/>
+          <stop offset="100%" stop-color="#E88A9A"/>
+        </linearGradient>
+      </defs>
+      <rect x="8" y="8" width="104" height="104" rx="28" fill="#FFF1EA"/>
+      <rect x="8" y="8" width="104" height="104" rx="28" fill="none" stroke="#F0D9DF" stroke-width="2"/>
+      <path d="M60 86s-22-13.5-22-29.5C38 47 46 41 54 45c3 1.5 5 4 6 6 1-2 3-4.5 6-6 8-4 16 2 16 11.5C76 72.5 60 86 60 86z" fill="url(#g1)"/>
+      <circle cx="78" cy="38" r="5" fill="#F2A7B5" opacity=".85"/>
+      <circle cx="42" cy="36" r="3.5" fill="#E88A9A" opacity=".55"/>
+    </svg>
+  </div>
+  <p class="eyebrow">娱乐向 · 自我观察</p>
+  <h1>恋爱脑测试</h1>
+  <p class="sub">测你是不是重度恋爱脑</p>
+  <p class="warm">损一点但友善的锐评 · 高分是投入倾向，不是定罪</p>
+  <ul class="dim-intro">
+    <li><i>F</i><div><b>滤镜厚度</b><span>把对方优点放大、缺点缩略</span></div></li>
+    <li><i>M</i><div><b>消息心跳</b><span>回复速度牵动情绪</span></div></li>
+    <li><i>B</i><div><b>边界让渡</b><span>为关系挪开自己的安排</span></div></li>
+    <li><i>P</i><div><b>进度幻想</b><span>脑内提前把未来排好程</span></div></li>
+    <li><i>S</i><div><b>自我流失</b><span>恋爱后爱好/社交缩水</span></div></li>
+    <li><i>A</i><div><b>患得患失</b><span>怕失去、反复确认安全感</span></div></li>
+  </ul>
+  <div class="pills"><span class="pill">18 道题</span><span class="pill">六维雷达</span><span class="pill">恋爱脑指数</span></div>
+  <button class="btn-primary" id="btnStart" type="button">开始测试</button>
+  <button class="btn-ghost" id="btnLast" type="button" hidden>查看上次结果</button>
+  <p class="hint">单选 · 没有标准答案 · 高分是倾向线索，不是诊断</p>
+  <p class="disclaimer" id="startDisclaimer"></p>
+</section>
+
+<section id="quiz" class="screen">
+  <div class="qh">
+    <div class="qrow"><button class="qback" id="qback" type="button">← 返回</button><span class="qprog" id="qprog"></span></div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+  </div>
+  <div class="qbody">
+    <div class="qno" id="qno"></div>
+    <div class="qtext" id="qtext"></div>
+    <div class="opts" id="opts"></div>
+  </div>
+</section>
+
+<section id="loading" class="screen">
+  <div class="loader"></div>
+  <div class="load-title">正在扫描恋爱脑浓度…</div>
+  <div class="load-sub">六维对齐中，请稍候</div>
+</section>
+
+<section id="result" class="screen">
+  <div class="rtop"><span>恋爱脑测试</span><span id="resultMeta"></span></div>
+  <div class="result-body" id="resultBody"></div>
+  <div class="acts">
+    <p class="acts-note">娱乐向自我观察 · 非正式心理测量 · 「恋爱脑」非医学诊断</p>
+    <div class="acts-row">
+      <button class="bo" id="btnViewLast" type="button">查看上次</button>
+      <button class="bo" id="btnCopy" type="button">复制文案</button>
+      <button class="bp" id="btnImg" type="button">生成卡片</button>
+    </div>
+    <div class="acts-row">
+      <button class="bp" id="btnRetry" type="button" style="flex:1">重新测试</button>
+    </div>
+  </div>
+</section>
+
+<div class="code-mask" id="codeMask" aria-hidden="true">
+  <div class="code-panel-wrap">
+    <button class="code-close" id="codeClose" type="button" aria-label="关闭">×</button>
+    <div class="code-panel">
+      <h3>输入验证码</h3>
+      <input id="codeInput" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" maxlength="8" placeholder="LBXXXX" aria-label="验证码">
+      <button class="btn-primary" id="btnCodeOk" type="button">开始答题</button>
+      <p class="code-hint">每码可测 3 次。重新测试会再扣 1 次；查看上次结果不扣次。</p>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="ov" aria-hidden="true">
+  <p class="ovh">长按图片保存，或点下方下载</p>
+  <img id="shareImg" alt="分享卡片">
+  <div class="ovb">
+    <button class="save" id="btnDl" type="button">下载图片</button>
+    <button class="shut" id="btnClose" type="button">关闭</button>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<noscript><p style="padding:24px;text-align:center">请开启 JavaScript 后使用本测验。</p></noscript>
+<script>
+const API_BASE='https://snappy-tundra-7uesdvk.tmp.now';
+const QUIZ_KEY='love';
+const ACCESS_KEY='love_brain_unlocked';
+const ACCESS_CODE_KEY='love_brain_code';
+const LAST_KEY='love_brain_last_result';
+const CODE_RE=/^LB[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{4}$/i;
+const URL_='https://zengpenghui420-glitch.github.io/love-brain/';
+const DISCLAIMER='本测试为娱乐向自我观察，非正式心理测量，不能替代专业评估。「恋爱脑」是网络梗，不是医学诊断。';
+const FONT='"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Noto Sans SC","WenQuanYi Micro Hei","Droid Sans Fallback","Microsoft YaHei",sans-serif';
+const CHOICES=[{v:1,t:'完全不像我'},{v:2,t:'不太像'},{v:3,t:'说不清'},{v:4,t:'有点像'},{v:5,t:'非常像我'}];
+const DIM_IDS=['F','M','B','P','S','A'];
+const DIM_META={
+  F:{name:'滤镜厚度', tip:'把对方优点放大、缺点缩略', high:'看人像精修图，瑕疵自动虚化', low:'优缺点都看得较清楚',
+    engine:'你的恋爱脑主引擎是「滤镜」：美好被放大，刺点被柔光。'},
+  M:{name:'消息心跳', tip:'回复速度牵动情绪', high:'已读不回能演一整部内心剧', low:'消息慢一点也能稳住',
+    engine:'你的恋爱脑主引擎是「消息心跳」：对话框几乎是情绪仪表盘。'},
+  B:{name:'边界让渡', tip:'为关系挪开自己的安排', high:'朋友局、爱好常给约会让路', low:'关系与自我日程较分明',
+    engine:'你的恋爱脑主引擎是「边界让渡」：爱意常常用放弃自己的安排来证明。'},
+  P:{name:'进度幻想', tip:'脑内提前把未来排好程', high:'认识不久已想旅行/见家长', low:'更跟着现实一步步来',
+    engine:'你的恋爱脑主引擎是「进度幻想」：脑内已经把下一季剧情拍完了。'},
+  S:{name:'自我流失', tip:'恋爱后爱好/社交缩水', high:'生活圆心几乎只剩对方', low:'仍保有自己的圈与兴趣',
+    engine:'你的恋爱脑主引擎是「自我流失」：关系变亮的同时，自己的光圈在收。'},
+  A:{name:'患得患失', tip:'怕失去、反复确认安全感', high:'情绪随对方态度过山车', low:'不安时能自我安抚',
+    engine:'你的恋爱脑主引擎是「患得患失」：安全感像需要频繁充电的充电宝。'}
+};
+
+const QS=[
+  {id:'F1', dim:'F', t:'朋友吐槽对方的缺点时，你会下意识帮 TA 找理由，觉得「其实没那么糟」。'},
+  {id:'F2', dim:'F', t:'对方做了让你不爽的事，隔天你更容易只记得 TA 温柔的那一面。'},
+  {id:'F3', dim:'F', rev:true, t:'你能比较冷静地列出对方三件真实缺点，而不是全自动美化。'},
+  {id:'M1', dim:'M', t:'对方超过两小时没回消息，你已经在脑内排演「是不是生气了 / 是不是有别人」。'},
+  {id:'M2', dim:'M', t:'约会前你会频繁刷新对话框，确认时间地点有没有变。'},
+  {id:'M3', dim:'M', rev:true, t:'手机静音一上午也没关系，不会因为对方没动静就坐立不安。'},
+  {id:'B1', dim:'B', t:'本来约好的朋友局，对方临时说想见你，你多半会改去陪 TA。'},
+  {id:'B2', dim:'B', t:'为了迁就对方作息或爱好，你推掉过自己本来想做的事。'},
+  {id:'B3', dim:'B', rev:true, t:'恋爱中你仍会明确保留「这是我自己的时间」，不太轻易让渡。'},
+  {id:'P1', dim:'P', t:'暧昧或刚在一起不久，你已经脑补过一起旅行、见家长或同居的画面。'},
+  {id:'P2', dim:'P', t:'刷到情侣日常或婚礼内容，会不自觉把对方脑补进下一个镜头。'},
+  {id:'P3', dim:'P', rev:true, t:'你更习惯先把当下过好，很少提前给关系排长期剧本。'},
+  {id:'S1', dim:'S', t:'恋爱后，你单独约朋友或独自爱好的时间明显变少了。'},
+  {id:'S2', dim:'S', t:'做决定时会先想「对方会不会喜欢 / 会不会不高兴」，超过想自己要什么。'},
+  {id:'S3', dim:'S', rev:true, t:'即使热恋，你也基本能维持自己的社交圈和兴趣节奏。'},
+  {id:'A1', dim:'A', t:'对方语气淡一点，你的心情会跟着掉一大截，需要反复确认「我们还好吗」。'},
+  {id:'A2', dim:'A', t:'吵架或冷战后，你会比对方更早示好，只想快点把安全感找回来。'},
+  {id:'A3', dim:'A', rev:true, t:'关系里出现不确定时，你大多能先安抚自己，而不是立刻追问。'}
+];
+
+const TIERS=[
+  {id:'CLEAR', min:0, max:20, name:'清醒观察员', punch:'心动有，但遥控器还在自己手里',
+    traits:[
+      '心动来了会承认，不会装作完全无感。',
+      '不会为暧昧清空日程，朋友局和爱好仍在线。',
+      '能分清「喜欢」和「脑内自制偶像剧」。',
+      '滤镜薄：优缺点都看得比较清楚。',
+      '消息慢一点也不会演一整部内心剧。'
+    ],
+    advice:[
+      '保持这股稳，是稀缺的情绪自控。',
+      '偶尔也允许自己小甜一下，别把自己活成情感审计员。',
+      '继续用具体事实校准感觉，少被脑补绑架。',
+      '把清醒当底色，而不是用来嘲讽别人上头。'
+    ]},
+  {id:'LIGHT', min:21, max:40, name:'轻度心动型', punch:'会甜一下，也能准时下班回现实',
+    traits:[
+      '会期待回复，但不等到世界停摆。',
+      '滤镜薄薄一层，擦得掉。',
+      '自我生活还在线：爱好和朋友没被清空。',
+      '未来想象开过小窗，但很少签长期合同。',
+      '不安出现时，大多还能把自己拉回现实。'
+    ],
+    advice:[
+      '继续把爱好和朋友当「充电宝」。',
+      '上头苗头出现时，用一件具体小事把自己拉回现实。',
+      '开心值得记，不舒服的瞬间也别自动删除。',
+      '保持每周至少一块「无对方日程」。'
+    ]},
+  {id:'SWEET', min:41, max:55, name:'甜蜜上头型', punch:'已进入滤镜试用期，尚可随时退出',
+    traits:[
+      '聊天有糖分，周末容易围着对方转。',
+      '未来想象开了个头，但还没签长期合同。',
+      '消息节奏开始牵动情绪，但还不至于崩盘。',
+      '朋友提醒时你会听，也可能先护一下短。',
+      '自我圈还在，但圆心已经悄悄偏移。'
+    ],
+    advice:[
+      '每周留一块「无对方日程」。',
+      '开心之外也记一笔对方让你不舒服的瞬间，别只存精修图。',
+      '重大决定先冷一晚再答。',
+      '把「我想怎样」说出来，而不只是配合对方节奏。'
+    ]},
+  {id:'FILTER', min:56, max:70, name:'滤镜开启型', punch:'脑子里对方的戏份明显超配',
+    traits:[
+      '缺点自动虚化，温柔片段循环播放。',
+      '消息迟到戏很多，脑内排演速度快。',
+      '朋友提醒时你会护短多过复盘。',
+      '安排开始给对方让路，自我日程变软。',
+      '进度幻想升温：下一季剧情已经开拍。'
+    ],
+    advice:[
+      '写「三件真实缺点」小练习，防止全自动美化。',
+      '重大决定（借钱、搬家、见家长）先冷 48 小时再答。',
+      '把朋友的提醒当参考，而不是攻击。',
+      '恢复一项只属于自己的爱好或固定局。'
+    ]},
+  {id:'HEAVY', min:71, max:85, name:'重度恋爱脑', punch:'日程表和情绪都围着 TA 转',
+    traits:[
+      '情绪与回复强绑定，对话框像仪表盘。',
+      '安排常给对方让路，朋友局容易改期。',
+      '自我圈明显缩水，圆心几乎只剩 TA。',
+      '安全感要反复续杯，冷淡一点就慌。',
+      '未来剧本很满，现实进度偶尔跟不上脑内。'
+    ],
+    advice:[
+      '恢复一项旧爱好或一位久未联系的朋友。',
+      '把「我需要什么」说出口，而不是只问「你还爱我吗」。',
+      '重要决定暂停 48 小时，先睡好觉再谈。',
+      '允许自己有「无对方也可运转」的一天。'
+    ]},
+  {id:'BLACKHOLE', min:86, max:100, name:'爱情黑洞体', punch:'引力拉满，旁边星球都觉得挤',
+    traits:[
+      '生活圆心几乎只剩 TA，其他星球都在边缘。',
+      '未来剧本很满，认识不久也可能脑补很远。',
+      '一点冷淡就能引发连锁焦虑。',
+      '边界模糊：自己的时间、爱好、社交都易让渡。',
+      '安全感像需要频繁充电的充电宝。'
+    ],
+    advice:[
+      '先把睡眠、吃饭、工作撑住——这是地基。',
+      '重要决定暂停；别在情绪最高或最低时签字画押。',
+      '若持续难受，找信任的人或专业支持聊聊。',
+      '娱乐测不替代帮助；你值得被好好对待，包括被自己对待。'
+    ]}
+];
+
+let ans=[], qi=0, picking=false, codeBusy=false, current=null, order=[];
+
+function $(id){return document.getElementById(id)}
+function el(tag, cls, text){
+  const n=document.createElement(tag);
+  if(cls) n.className=cls;
+  if(text!=null) n.textContent=text;
+  return n;
+}
+function esc(s){return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  $(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+function toast(msg){
+  const t=$('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(toast._tm);
+  toast._tm=setTimeout(()=>t.classList.remove('show'),2200);
+}
+function itemScore(q,v){return q.rev?6-v:v}
+function to100(mean){return Math.round(Math.max(0,Math.min(100,((mean-1)/4)*100)))}
+function shuffle(arr){
+  const a=arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    const t=a[i];a[i]=a[j];a[j]=t;
+  }
+  return a;
+}
+function scoreFromAnswers(list){
+  const buckets={F:[],M:[],B:[],P:[],S:[],A:[]};
+  list.forEach((v,i)=>{
+    const q=QS[order[i]];
+    buckets[q.dim].push(itemScore(q,v));
+  });
+  const scores={};
+  DIM_IDS.forEach(id=>{
+    const arr=buckets[id];
+    const mean=arr.reduce((s,x)=>s+x,0)/arr.length;
+    scores[id]=to100(mean);
+  });
+  return scores;
+}
+function indexOf(scores){
+  const sum=DIM_IDS.reduce((s,id)=>s+scores[id],0);
+  return Math.round(sum/DIM_IDS.length);
+}
+function tierOf(index){
+  const n=Math.max(0,Math.min(100,index));
+  for(const t of TIERS){
+    if(n>=t.min && n<=t.max) return t;
+  }
+  return TIERS[TIERS.length-1];
+}
+function dominantOf(scores){
+  let best=DIM_IDS[0], bestScore=scores[DIM_IDS[0]];
+  for(let i=1;i<DIM_IDS.length;i++){
+    const id=DIM_IDS[i];
+    if(scores[id]>bestScore){best=id;bestScore=scores[id]}
+  }
+  return best;
+}
+function analyze(scores){
+  const index=indexOf(scores);
+  const tier=tierOf(index);
+  const dom=dominantOf(scores);
+  return {
+    scores,
+    index,
+    tierId:tier.id,
+    name:tier.name,
+    punch:tier.punch,
+    traits:tier.traits,
+    advice:tier.advice,
+    dominant:dom,
+    dominantName:DIM_META[dom].name,
+    engine:DIM_META[dom].engine
+  };
+}
+function fillDisclaimer(node){
+  node.textContent='';
+  const marks=['非正式心理测量','不能替代专业评估','不是医学诊断'];
+  const re=new RegExp('('+marks.map(m=>m.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')');
+  DISCLAIMER.split(re).forEach(part=>{
+    if(marks.indexOf(part)>=0) node.appendChild(el('strong',null,part));
+    else if(part) node.appendChild(document.createTextNode(part));
+  });
+}
+function radarSVG(r){
+  const dims=DIM_IDS.map(id=>({name:DIM_META[id].name, score:r.scores[id]}));
+  const cx=220, cy=230, R=92, n=dims.length;
+  const pt=(i,v)=>{
+    const a=-Math.PI/2+(i*2*Math.PI)/n;
+    const rr=Math.max(0,Math.min(100,v))/100*R;
+    return [cx+rr*Math.cos(a), cy+rr*Math.sin(a)];
+  };
+  let rings='', axes='', nums='';
+  [25,50,75,100].forEach(k=>{
+    const pts=[];
+    for(let i=0;i<n;i++) pts.push(pt(i,k).map(v=>v.toFixed(1)).join(','));
+    const strong=k===50||k===100;
+    rings+='<polygon points="'+pts.join(' ')+'" fill="'+(k===100?'rgba(247,198,208,0.08)':'none')+'" stroke="'+(strong?'#E8C4CC':'#F0D9DF')+'" stroke-width="'+(strong?'1.6':'1')+'"/>';
+    const wedge=-Math.PI/3;
+    const sx=cx+(k/100)*R*Math.cos(wedge);
+    const sy=cy+(k/100)*R*Math.sin(wedge);
+    nums+='<text x="'+sx.toFixed(1)+'" y="'+sy.toFixed(1)+'" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#B89AA6">'+k+'</text>';
+  });
+  for(let i=0;i<n;i++){
+    const p=pt(i,100);
+    axes+='<line x1="'+cx+'" y1="'+cy+'" x2="'+p[0].toFixed(1)+'" y2="'+p[1].toFixed(1)+'" stroke="#F0D9DF" stroke-width="1"/>';
+  }
+  const poly=dims.map((d,i)=>pt(i,d.score).map(v=>v.toFixed(1)).join(',')).join(' ');
+  const dots=dims.map((d,i)=>{
+    const p=pt(i,d.score);
+    return '<circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="4.2" fill="#FFF7F4" stroke="#E88A9A" stroke-width="2"/>';
+  }).join('');
+  let labels='';
+  const halo=' stroke="#FFF7F4" stroke-width="4" paint-order="stroke"';
+  dims.forEach((d,i)=>{
+    const a=-Math.PI/2+(i*2*Math.PI)/n;
+    const lr=R+52;
+    const x=cx+lr*Math.cos(a);
+    const y=cy+lr*Math.sin(a);
+    const anchor=Math.abs(Math.cos(a))<0.35?'middle':(Math.cos(a)>0?'start':'end');
+    labels+='<text x="'+x.toFixed(1)+'" y="'+(y-8).toFixed(1)+'" text-anchor="'+anchor+'" font-size="12" fill="#3A2434"'+halo+'>'+esc(d.name)+'</text>';
+    labels+='<text x="'+x.toFixed(1)+'" y="'+(y+10).toFixed(1)+'" text-anchor="'+anchor+'" font-size="15" font-weight="700" fill="#7A4E5E"'+halo+'>'+d.score+'</text>';
+  });
+  const aria='六维雷达图，刻度 0 到 100。'+dims.map(d=>d.name+' '+d.score).join('，');
+  return '<svg viewBox="0 0 440 470" role="img" aria-label="'+esc(aria)+'">'+
+    rings+axes+
+    '<polygon points="'+poly+'" fill="rgba(247,198,208,0.42)" stroke="#D96B82" stroke-width="2.4" stroke-linejoin="round"/>'+
+    dots+nums+labels+'</svg>';
+}
+function renderResult(r){
+  current=r;
+  const root=$('resultBody');
+  root.textContent='';
+  $('resultMeta').textContent=r.name+' · '+r.index;
+
+  const hero=el('section','card');
+  hero.appendChild(el('p','kicker','恋爱脑指数'));
+  hero.appendChild(el('p','index-num',String(r.index)));
+  hero.appendChild(el('p','index-max','六维均分 · 0–100'));
+  const badge=el('div','badge-row');
+  badge.appendChild(el('span','lv',r.tierId));
+  hero.appendChild(badge);
+  hero.appendChild(el('p','lead','当前档位'));
+  const title=el('h2','type-title',r.name);
+  title.id='typeTitle';
+  hero.appendChild(title);
+  hero.appendChild(el('p','punch',r.punch));
+  hero.appendChild(el('p','egg',r.engine));
+  const tags=el('div','tags');
+  tags.appendChild(el('span','tag','主导 · '+r.dominantName));
+  tags.appendChild(el('span','tag',r.tierId));
+  tags.appendChild(el('span','tag','指数 '+r.index));
+  hero.appendChild(tags);
+  hero.appendChild(el('p','note','主导倾向取六维最高分；并列时按 滤镜→消息→边界→幻想→自我→患得患失 优先。'));
+  root.appendChild(hero);
+
+  const radar=el('section','card');
+  radar.id='radarCard';
+  radar.appendChild(el('h2','st','六维雷达'));
+  const box=el('div','radar-box');
+  box.innerHTML=radarSVG(r);
+  radar.appendChild(box);
+  const grid=el('div','score-grid');
+  DIM_IDS.forEach(id=>{
+    const row=el('div','bar');
+    const h=el('div','bar-h');
+    h.appendChild(document.createTextNode(DIM_META[id].name));
+    h.appendChild(el('b',null,String(r.scores[id])));
+    row.appendChild(h);
+    const track=el('div','bar-track');
+    const fill=el('div','bar-fill');
+    fill.style.width=r.scores[id]+'%';
+    track.appendChild(fill);
+    row.appendChild(track);
+    grid.appendChild(row);
+  });
+  radar.appendChild(grid);
+  radar.appendChild(el('p','fine','外圈是 100。越靠外，这一维自我报告倾向越明显。高分是投入线索，不是性格缺陷定罪。'));
+  root.appendChild(radar);
+
+  const feat=el('section','card');
+  feat.appendChild(el('h2','st','特征表现'));
+  const ul=el('ul','bullets');
+  r.traits.forEach(t=>{const li=el('li');li.textContent=t;ul.appendChild(li)});
+  feat.appendChild(ul);
+  root.appendChild(feat);
+
+  const adv=el('section','card');
+  adv.appendChild(el('h2','st','清醒小建议'));
+  const ul2=el('ul','bullets');
+  r.advice.forEach(t=>{const li=el('li');li.textContent=t;ul2.appendChild(li)});
+  adv.appendChild(ul2);
+  root.appendChild(adv);
+
+  const dimCard=el('section','card');
+  dimCard.appendChild(el('h2','st','六维速读'));
+  DIM_IDS.forEach(id=>{
+    const block=el('div','dim-read');
+    const head=el('div','dim-head');
+    head.appendChild(el('span','dn',DIM_META[id].name+(id===r.dominant?' · 主导':'')));
+    head.appendChild(el('span','ds',String(r.scores[id])));
+    block.appendChild(head);
+    const tip=r.scores[id]>=67?DIM_META[id].high:(r.scores[id]<=33?DIM_META[id].low:DIM_META[id].tip);
+    block.appendChild(el('p',null,tip));
+    dimCard.appendChild(block);
+  });
+  root.appendChild(dimCard);
+
+  const disc=el('p','disclaimer');
+  fillDisclaimer(disc);
+  root.appendChild(disc);
+}
+function resultText(r){
+  return [
+    '【恋爱脑测试】',
+    r.name+' · 恋爱脑指数 '+r.index,
+    r.punch,
+    '主导倾向：'+r.dominantName,
+    r.engine,
+    '六维：'+DIM_IDS.map(id=>DIM_META[id].name+r.scores[id]).join(' / '),
+    '特征：'+r.traits.slice(0,3).join('；'),
+    DISCLAIMER,
+    URL_
+  ].filter(Boolean).join('\n');
+}
+function copyText(){
+  if(!current) return;
+  const text=resultText(current);
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>toast('已复制结果文案')).catch(()=>fallbackCopy(text));
+  }else fallbackCopy(text);
+}
+function fallbackCopy(text){
+  const ta=document.createElement('textarea');
+  ta.value=text;document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');toast('已复制结果文案')}catch(e){toast('复制失败，请手动长按选择')}
+  document.body.removeChild(ta);
+}
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+}
+function wrapT(ctx,text,maxW){
+  const chars=String(text).split('');
+  const lines=[]; let line='';
+  for(const ch of chars){
+    const t=line+ch;
+    if(ctx.measureText(t).width>maxW && line){lines.push(line);line=ch}
+    else line=t;
+  }
+  if(line) lines.push(line);
+  return lines;
+}
+function drawRadarCanvas(ctx,cx,cy,R,scores){
+  const n=6;
+  const pt=(i,v)=>{
+    const a=-Math.PI/2+(i*2*Math.PI)/n;
+    const rr=Math.max(0,Math.min(100,v))/100*R;
+    return [cx+rr*Math.cos(a), cy+rr*Math.sin(a)];
+  };
+  [25,50,75,100].forEach(k=>{
+    ctx.beginPath();
+    for(let i=0;i<n;i++){
+      const p=pt(i,k);
+      if(i===0) ctx.moveTo(p[0],p[1]); else ctx.lineTo(p[0],p[1]);
+    }
+    ctx.closePath();
+    ctx.strokeStyle=k===100||k===50?'#E8C4CC':'#F0D9DF';
+    ctx.lineWidth=k===100?1.6:1;
+    ctx.stroke();
+  });
+  for(let i=0;i<n;i++){
+    const p=pt(i,100);
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(p[0],p[1]);
+    ctx.strokeStyle='#F0D9DF';ctx.lineWidth=1;ctx.stroke();
+  }
+  ctx.beginPath();
+  DIM_IDS.forEach((id,i)=>{
+    const p=pt(i,scores[id]);
+    if(i===0) ctx.moveTo(p[0],p[1]); else ctx.lineTo(p[0],p[1]);
+  });
+  ctx.closePath();
+  ctx.fillStyle='rgba(247,198,208,0.42)';
+  ctx.strokeStyle='#D96B82';
+  ctx.lineWidth=2.4;
+  ctx.fill();ctx.stroke();
+  DIM_IDS.forEach((id,i)=>{
+    const p=pt(i,scores[id]);
+    ctx.beginPath();ctx.arc(p[0],p[1],4,0,Math.PI*2);
+    ctx.fillStyle='#FFF7F4';ctx.strokeStyle='#E88A9A';ctx.lineWidth=2;ctx.fill();ctx.stroke();
+    const a=-Math.PI/2+(i*2*Math.PI)/n;
+    const lx=cx+(R+28)*Math.cos(a), ly=cy+(R+28)*Math.sin(a);
+    ctx.fillStyle='#3A2434';ctx.font='600 13px '+FONT;
+    ctx.textAlign=Math.abs(Math.cos(a))<0.35?'center':(Math.cos(a)>0?'left':'right');
+    ctx.fillText(DIM_META[id].name,lx,ly);
+  });
+}
+function buildShare(r){
+  const W=750, H=1200;
+  const cv=document.createElement('canvas');
+  cv.width=W;cv.height=H;
+  const x=cv.getContext('2d');
+  const g=x.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,'#FFFBF9');g.addColorStop(1,'#FFEDEE');
+  x.fillStyle=g;x.fillRect(0,0,W,H);
+  function T(t,tx,ty,s,col,wt){x.fillStyle=col;x.font=(wt||'600')+' '+s+'px '+FONT;x.fillText(t,tx,ty)}
+  roundRect(x,40,48,W-80,H-96,28);
+  x.fillStyle='#FFFCFB';x.fill();
+  x.strokeStyle='#F0D9DF';x.lineWidth=2;x.stroke();
+  T('恋爱脑测试',70,110,22,'#D96B82','700');
+  T(r.name,70,180,44,'#3A2434','700');
+  T('恋爱脑指数 '+r.index,70,230,26,'#7A4E5E','700');
+  const punchLines=wrapT(Object.assign(x,{font:'500 24px '+FONT})||x, r.punch, W-160);
+  x.font='500 24px '+FONT;x.fillStyle='#5A3848';
+  punchLines.slice(0,3).forEach((ln,i)=>x.fillText(ln,70,280+i*36));
+  drawRadarCanvas(x,W/2,560,140,r.scores);
+  let y=760;
+  x.font='600 22px '+FONT;x.fillStyle='#3A2434';x.fillText('特征表现',70,y);
+  y+=36;
+  x.font='400 20px '+FONT;x.fillStyle='#5A3848';
+  r.traits.slice(0,3).forEach(t=>{
+    wrapT(x,'· '+t,W-160).slice(0,2).forEach(ln=>{x.fillText(ln,70,y);y+=30});
+    y+=8;
+  });
+  y=Math.max(y,1040);
+  x.font='400 16px '+FONT;x.fillStyle='#B89AA6';
+  x.fillText('娱乐向 · 非正式心理测量 · 非医学诊断',70,y);
+  x.fillText(URL_,70,y+28);
+  return cv.toDataURL('image/png');
+}
+function showShare(){
+  if(!current) return;
+  try{
+    const url=buildShare(current);
+    window.__shareUrl=url;
+    $('shareImg').src=url;
+    $('ov').classList.add('show');
+    $('ov').setAttribute('aria-hidden','false');
+  }catch(e){
+    console.error(e);
+    toast('生成卡片失败，请截图保存');
+  }
+}
+function renderQ(){
+  const total=QS.length;
+  const q=QS[order[qi]];
+  $('qprog').textContent=(qi+1)+' / '+total;
+  $('fill').style.width=((qi)/total*100)+'%';
+  $('qno').textContent='第 '+(qi+1)+' 题';
+  $('qtext').textContent=q.t;
+  const box=$('opts');
+  box.textContent='';
+  CHOICES.forEach(c=>{
+    const b=el('button','opt');
+    b.type='button';
+    const num=el('span','onum',String(c.v));
+    b.appendChild(num);
+    b.appendChild(document.createTextNode(c.t));
+    if(ans[qi]===c.v) b.classList.add('sel');
+    b.onclick=()=>pick(c.v);
+    box.appendChild(b);
+  });
+}
+function pick(v){
+  if(picking) return;
+  picking=true;
+  ans[qi]=v;
+  renderQ();
+  setTimeout(()=>{
+    if(qi<QS.length-1){qi++;picking=false;renderQ()}
+    else {picking=false;finish()}
+  },180);
+}
+function finish(){
+  show('loading');
+  setTimeout(()=>{
+    const scores=scoreFromAnswers(ans);
+    const report=analyze(scores);
+    try{
+      const saved=Object.assign({tierId:report.tierId,name:report.name,index:report.index,dominant:report.dominant,punch:report.punch,at:Date.now()}, scores);
+      localStorage.setItem(LAST_KEY, JSON.stringify(saved));
+    }catch(e){}
+    refreshLastBtn();
+    renderResult(report);
+    show('result');
+  },900);
+}
+function isUnlocked(){try{return sessionStorage.getItem(ACCESS_KEY)==='1'}catch(e){return false}}
+function setUnlocked(code){
+  try{
+    sessionStorage.setItem(ACCESS_KEY,'1');
+    if(code) sessionStorage.setItem(ACCESS_CODE_KEY,code);
+  }catch(e){}
+}
+function clearUnlock(){
+  try{
+    sessionStorage.removeItem(ACCESS_KEY);
+    sessionStorage.removeItem(ACCESS_CODE_KEY);
+  }catch(e){}
+}
+function sessionCode(){
+  try{return normalizeCode(sessionStorage.getItem(ACCESS_CODE_KEY)||'')}catch(e){return ''}
+}
+function normalizeCode(v){
+  return String(v||'')
+    .trim()
+    .replace(/[\uFF21-\uFF3A]/g, ch=>String.fromCharCode(ch.charCodeAt(0)-0xFF21+65))
+    .replace(/[\uFF10-\uFF19]/g, ch=>String.fromCharCode(ch.charCodeAt(0)-0xFF10+48))
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g,'');
+}
+function openCodeModal(prefill){
+  $('codeMask').classList.add('show');
+  $('codeMask').setAttribute('aria-hidden','false');
+  document.body.classList.add('lock');
+  const inp=$('codeInput');
+  if(prefill!=null) inp.value=prefill;
+  setTimeout(()=>inp.focus(),40);
+}
+function closeCodeModal(){
+  $('codeMask').classList.remove('show');
+  $('codeMask').setAttribute('aria-hidden','true');
+  document.body.classList.remove('lock');
+}
+function startQuiz(){
+  ans=[];qi=0;picking=false;
+  order=shuffle(QS.map((_,i)=>i));
+  closeCodeModal();
+  show('quiz');
+  renderQ();
+}
+function setCodeBusy(busy){
+  const btn=$('btnCodeOk');
+  btn.disabled=!!busy;
+  btn.textContent=busy?'验证中…':'开始答题';
+}
+function refreshLastBtn(){
+  let has=false;
+  try{has=!!localStorage.getItem(LAST_KEY)}catch(e){}
+  $('btnLast').hidden=!has;
+}
+function clampScore(n){
+  n=Number(n);
+  if(!Number.isFinite(n)) return null;
+  return Math.max(0, Math.min(100, Math.round(n)));
+}
+function showLast(){
+  let data=null;
+  try{data=JSON.parse(localStorage.getItem(LAST_KEY)||'null')}catch(e){data=null}
+  if(!data){toast('还没有上次结果');refreshLastBtn();return}
+  const scores={};
+  for(const id of DIM_IDS){
+    const v=clampScore(data[id]);
+    if(v==null){toast('还没有上次结果');refreshLastBtn();return}
+    scores[id]=v;
+  }
+  renderResult(analyze(scores));
+  show('result');
+  toast('已打开上次结果，本次不扣次');
+}
+async function apiFetch(url, opts){
+  const ctl=new AbortController();
+  const timer=setTimeout(()=>ctl.abort(),12000);
+  try{return await fetch(url, Object.assign({}, opts, {signal:ctl.signal}))}
+  finally{clearTimeout(timer)}
+}
+async function peekVault(code){
+  const r=await apiFetch(API_BASE+'/get?quiz='+encodeURIComponent(QUIZ_KEY)+'&code='+encodeURIComponent(code));
+  if(r.status===404) return null;
+  if(!r.ok) throw new Error('net '+r.status);
+  const data=await r.json();
+  if(!data||data.ok===false){
+    if(data&&(data.error==='not_found'||data.error==='invalid')) return null;
+    throw new Error((data&&data.error)||('net '+r.status));
+  }
+  return data;
+}
+async function redeemVault(code){
+  const r=await apiFetch(API_BASE+'/redeem',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({quiz:QUIZ_KEY,code})
+  });
+  let data=null;
+  try{data=await r.json()}catch(e){
+    if(r.status===404) return {ok:false,reason:'invalid'};
+    throw new Error('net '+r.status);
+  }
+  if(!data||!data.ok){
+    if(data&&data.error==='exhausted') return {ok:false,reason:'exhausted'};
+    if(r.status===404||(data&&(data.error==='not_found'||data.error==='invalid'))) return {ok:false,reason:'invalid'};
+    return {ok:false,reason:(data&&data.error)||('net '+r.status)};
+  }
+  return {ok:true,remaining:data.remaining,max:data.max||3};
+}
+async function tryUnlock(fromUrl){
+  if(codeBusy) return false;
+  const code=normalizeCode($('codeInput').value);
+  $('codeInput').value=code;
+  if(!code){if(!fromUrl) toast('请输入验证码');return false}
+  if(!CODE_RE.test(code)){if(!fromUrl) toast('验证码不正确');return false}
+  codeBusy=true;
+  setCodeBusy(true);
+  try{
+    const out=await redeemVault(code);
+    if(out.ok){
+      setUnlocked(code);
+      const left=out.remaining;
+      toast(left>0?('验证成功，还可以测 '+left+' 次'):'验证成功，这是本码最后一次');
+      startQuiz();
+      return true;
+    }
+    if(!fromUrl) toast(out.reason==='exhausted'?'此验证码已用完（每个码限 3 次）':'验证码不正确');
+    return false;
+  }catch(e){
+    console.error(e);
+    if(!fromUrl) toast('网络异常，请稍后重试');
+    return false;
+  }finally{
+    codeBusy=false;
+    setCodeBusy(false);
+  }
+}
+
+$('btnStart').onclick=()=>{if(isUnlocked()){startQuiz();return} openCodeModal(null)};
+$('btnLast').onclick=()=>showLast();
+$('btnViewLast').onclick=()=>showLast();
+$('btnCodeOk').onclick=()=>tryUnlock(false);
+$('codeInput').addEventListener('keydown',e=>{if(e.key==='Enter') tryUnlock(false)});
+$('codeInput').addEventListener('input',()=>{
+  const input=$('codeInput');
+  const v=input.value.toUpperCase();
+  if(v!==input.value){const p=input.selectionStart;input.value=v;try{input.setSelectionRange(p,p)}catch(e){}}
+});
+$('codeClose').onclick=closeCodeModal;
+$('codeMask').addEventListener('click',e=>{if(e.target===$('codeMask')) closeCodeModal()});
+$('qback').onclick=()=>{
+  if(picking) return;
+  if(qi>0){qi--;renderQ()}
+  else show('start');
+};
+$('btnRetry').onclick=()=>{
+  let pre='';
+  try{pre=sessionStorage.getItem(ACCESS_CODE_KEY)||''}catch(e){}
+  clearUnlock();
+  openCodeModal(pre);
+};
+$('btnCopy').onclick=copyText;
+$('btnImg').onclick=showShare;
+$('btnClose').onclick=()=>{$('ov').classList.remove('show');$('ov').setAttribute('aria-hidden','true')};
+$('btnDl').onclick=()=>{
+  if(!window.__shareUrl) return;
+  const a=document.createElement('a');
+  a.href=window.__shareUrl;a.download='love-brain.png';
+  document.body.appendChild(a);a.click();a.remove();
+};
+
+fillDisclaimer($('startDisclaimer'));
+refreshLastBtn();
+(function bootFromUrl(){
+  try{
+    const u=new URL(location.href);
+    const c=normalizeCode(u.searchParams.get('code')||'');
+    if(c&&CODE_RE.test(c)){
+      $('codeInput').value=c;
+      if(!isUnlocked()) openCodeModal(c);
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
